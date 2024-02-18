@@ -11,6 +11,7 @@ namespace SpecFlowAPI.StepDefinitions
     {
         public static string message;
         public static string URL;
+
         [Given(@"we pick a random API")]
         public void GivenWePickARandomAPI()
         {
@@ -29,16 +30,15 @@ namespace SpecFlowAPI.StepDefinitions
         public void ThenTheAPIRespondsWithAFact()
         {
             Console.Write(message);
-        }
-        static async Task GetCatFact()
+        } 
+
+         private static async Task GetCatFact()
         {
-        
             using (HttpClient httpClient = new HttpClient())
             {
                 try
                 {
-                     message = await httpClient.GetStringAsync(URL);
-                    
+                     message = await httpClient.GetStringAsync(URL);                  
                 }
                 catch (Exception ex)
                 {
